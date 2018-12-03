@@ -1,1 +1,114 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'OpenSans-Light';
+    src: url(fonts/OpenSans-Light.ttf);
+}
+
+@font-face {
+    font-family: 'OpenSans-Regular';
+    src: url(fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url(fonts/OpenSans-Bold.ttf);
+}
+
+body {
+    color: #454242;
+    font-family: OpenSans-Regular;
+}
+
+* {
+    outline: none;
+}
+
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flex-wr {
+    flex-wrap: wrap;
+}
+
+.flex-ch {
+    justify-content: center;
+}
+
+.flex-ri {
+    justify-content: flex-end;
+}
+
+.flex-bv {
+    align-items: flex-end;
+}
+
+.flex-le {
+    justify-content: flex-start;
+}
+
+.flex-sp {
+    justify-content: space-between;
+}
+
+.flex-sa {
+    justify-content: last-baseline;
+    padding-top: 50px;
+}
+
+.flex-cv {
+    align-items: center;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.ico {
+    font-family: "FontAwesome";
+    font-style: normal;
+    font-weight: normal;
+}
+
+.barra {
+    float: left;
+    width: 100%;
+}
+
+.cover {
+    background-size: cover !important;
+}
