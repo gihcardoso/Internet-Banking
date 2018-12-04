@@ -1,3 +1,5 @@
+declare var $: any;
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,6 +12,11 @@ export class MenuComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ativaMenu(e) {
+    $('nav').toggleClass('ativo');
+    e.preventDefault();
   }
 
 }
