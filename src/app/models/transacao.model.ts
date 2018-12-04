@@ -2,7 +2,7 @@ export class Transacao{
 
     tipoTransacao: string;
     dtTransacao: Date;
-    nmFavorecitdo: string;
+    nmFavorecido: string;
     nrBanco: number;
     nrConta: number;
     nrAgencia: number;
