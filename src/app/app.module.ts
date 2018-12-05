@@ -9,17 +9,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 // Novos componentes > (Certificar que eles estão no declarations)
-import { MenuComponent } from './menu/menu.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { ExtratoComponent } from './extrato/extrato.component';
-import { TransferenciasComponent } from './transferencias/transferencias.component';
-// Services > (Depois daqui, adicionar no providers abaixo)
-import{LoginService} from './services/login.service';
-import{AuthService} from './services/auth.service';
+import { MenuComponent } from './components/menu/menu.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { ExtratoComponent } from './components/extrato/extrato.component';
+import { TransferenciasComponent } from './components/transferencias/transferencias.component';
 
+// Services > (Depois daqui, adicionar no providers abaixo)
+import { LoginService } from './services/login.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -37,12 +37,10 @@ import{AuthService} from './services/auth.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule
-
   ],
   providers: [
     LoginService,
     AuthService
-
   ],
   bootstrap: [AppComponent]
 })

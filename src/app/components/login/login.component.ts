@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { $ } from 'protractor';
 
 // Imports manuais - Pro Login funfar e pah
-import { AuthService } from '../services/auth.service';
-import { Login } from '../models/login.model';
+import { AuthService } from '../../services/auth.service';
+import { Login } from '../../models/login.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,29 +13,25 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
- // private login: Login = new Login();
+  // private login: Login = new Login();
 
-  login={}
+  login = {}
   constructor(private authService: AuthService, private router: Router) {
-
-
   }
 
   ngOnInit() {
   }
 
-  fazerLogin(){
-
+  fazerLogin() {
     console.log(this.login);
-   this.authService.fazerLogin2(this.login)
-   .subscribe(
-      res =>{ console.log(res)
-      this.router.navigate(['home']);
-      },
-      err => console.log(err)
-      
-
-   )
+    this.authService.fazerLogin2(this.login)
+      .subscribe(
+        res => {
+          console.log(res)
+          this.router.navigate(['home']);
+        },
+        err => console.log(err)
+      )
   }
 
 }
