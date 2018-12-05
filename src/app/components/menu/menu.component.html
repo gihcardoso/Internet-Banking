@@ -10,13 +10,13 @@
         <u></u>
       </a>
       <ul>
-        <li>
+        <li (click)="desativaMenu()">
           <a [routerLink]="['/home']" routerLinkActive="active">Home</a>
         </li>
-        <li>
+        <li (click)="desativaMenu()">
           <a [routerLink]="['/extrato']" routerLinkActive="active">Extrato</a>
         </li>
-        <li>
+        <li (click)="desativaMenu()">
           <a [routerLink]="['/transferencias']" routerLinkActive="active">Transferências</a>
         </li>
       </ul>

@@ -19,4 +19,9 @@ export class MenuComponent implements OnInit {
     e.preventDefault();
   }
 
+  desativaMenu(e) {
+    $('nav').removeClass('ativo');
+    e.preventDefault();
+  }
+
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<app-header></app-header>
-<app-menu></app-menu>
+<app-header *ngIf="isLogado"></app-header>
+<app-menu *ngIf="isLogado"></app-menu>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer *ngIf="isLogado"></app-footer>

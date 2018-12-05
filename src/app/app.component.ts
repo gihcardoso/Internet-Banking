@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 @Component({
@@ -8,4 +8,15 @@ import { Title } from '@angular/platform-browser';
 })
 export class AppComponent {
   title = 'FlowBank';
+  isLogado = false;
+
+  ngOnInit(): void {
+    if (location.pathname === '/') {
+      this.isLogado = false;
+    } else {
+      this.isLogado = true;
+    }
+  }
 }
+
+
