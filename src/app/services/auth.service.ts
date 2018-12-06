@@ -8,26 +8,23 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-
   constructor(private http: HttpClient, private router: Router) { }
 
   fazerLogin2(login) {
     return this.http.post<any>(`${API}/usuario/logon`, login);
-
   }
 
-  pegarToken(){
+  pegarToken() {
     return localStorage.getItem('token');
   }
 
   deslogarUsuario() {
-    localStorage.removeItem('token')
-    this.router.navigate(['/'])
-}
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
+  }
 
-  usuarioEstaLogado(){
-
-    return !!localStorage.getItem('token') 
+  usuarioEstaLogado() {
+    return !!localStorage.getItem('token');
   }
 
 }
