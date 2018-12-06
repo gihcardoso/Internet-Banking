@@ -16,9 +16,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ExtratoComponent } from './components/extrato/extrato.component';
 import { TransferenciasComponent } from './components/transferencias/transferencias.component';
+import { ErrorComponent } from './components/error/error.component';
 
 // Services > (Depois daqui, verificar se esta no providers)
-import { LoginService } from './services/login.service';
 import { AuthService } from './services/auth.service';
 
 // Guards > (Depois daqui, verificar se esta no providers)
@@ -34,6 +34,7 @@ import { AuthGuard } from './guards/auth.guard';
     LoginComponent,
     ExtratoComponent,
     TransferenciasComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +43,6 @@ import { AuthGuard } from './guards/auth.guard';
     HttpClientModule
   ],
   providers: [
-    LoginService,
     AuthService,
     AuthGuard
   ],

@@ -5,31 +5,35 @@ import { HomeComponent } from './components/home/home.component';
 import { ExtratoComponent } from './components/extrato/extrato.component';
 import { TransferenciasComponent } from './components/transferencias/transferencias.component';
 import { AuthGuard } from './guards/auth.guard';
-import { MenuComponent } from './components/menu/menu.component';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
+import { ErrorComponent } from './components/error/error.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: LoginComponent
   },
-  { 
-    path: 'home', 
+  {
+    path: 'home',
     component: HomeComponent,
     canActivate: [AuthGuard]
   },
-  { 
-    path: 'extrato', 
+  {
+    path: 'extrato',
     component: ExtratoComponent,
     canActivate: [AuthGuard]
   },
-  { 
-    path: 'transferencias', 
+  {
+    path: 'transferencias',
     component: TransferenciasComponent,
     canActivate: [AuthGuard]
   },
-
+  {
+    path: 'error',
+    component: ErrorComponent,
+  },
+  {
+    path: '**', redirectTo: 'error'
+  },
 ];
 
 @NgModule({
