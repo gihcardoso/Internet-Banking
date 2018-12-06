@@ -27,7 +27,7 @@ input::-webkit-inner-spin-button {
 }
 
 input[type=number] {
-    -moz-appearance:textfield;
+    -moz-appearance: textfield;
 }
 
 body {
@@ -128,4 +128,8 @@ h6 {
 
 .cover {
     background-size: cover !important;
+}
+
+.w100 {
+    width: 100%;
 }
