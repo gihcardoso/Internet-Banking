@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { AuthService } from '../app/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,16 +8,29 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'FlowBank';
-  isLogado = false;
+  //title = 'FlowBank';
+  //isLogado = false;
 
-  ngOnInit(): void {
+ /* ngOnInit(): void {
     if (location.pathname === '/') {
       this.isLogado = false;
     } else {
       this.isLogado = true;
     }
   }
+  */
+
+ constructor(private authService: AuthService) { }
+
+ isLogado(): boolean {
+  if (this.authService.usuarioEstaLogado()) {
+    console.log('true')
+    return true
+  } else {
+    console.log('false')            
+    return false
+  }
+
 }
 
-
+}

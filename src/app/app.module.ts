@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// Modulos criados pro Teste
+// Modulos criados --
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,9 +17,12 @@ import { LoginComponent } from './components/login/login.component';
 import { ExtratoComponent } from './components/extrato/extrato.component';
 import { TransferenciasComponent } from './components/transferencias/transferencias.component';
 
-// Services > (Depois daqui, adicionar no providers abaixo)
+// Services > (Depois daqui, verificar se esta no providers)
 import { LoginService } from './services/login.service';
 import { AuthService } from './services/auth.service';
+
+// Guards > (Depois daqui, verificar se esta no providers)
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { AuthService } from './services/auth.service';
   ],
   providers: [
     LoginService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
