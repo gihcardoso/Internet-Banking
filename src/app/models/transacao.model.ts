@@ -1,13 +1,8 @@
-export class Transacao{
-
-    tipoTransacao: string;
-    dtTransacao: Date;
-    nmFavorecido: string;
-    nrBanco: number;
-    nrConta: number;
-    nrAgencia: number;
-    vlTransacao: number;
-    nrCPF: number;
-    dsEmail: string;
-
+export class Transacao {
+    transacoes: {
+        valor: number,
+        tipo: number,
+        data: string,
+        hora: string
+    }
 }

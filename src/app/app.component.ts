@@ -12,10 +12,8 @@ export class AppComponent {
 
   isLogado(): boolean {
     if (this.authService.usuarioEstaLogado()) {
-      console.log('true');
       return true;
     } else {
-      console.log('false');
       return false;
     }
 

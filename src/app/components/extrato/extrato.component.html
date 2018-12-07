@@ -2,10 +2,14 @@
   <div class="container">
     <h1>Extrato</h1>
     <h2>Confira suas transações:</h2>
+
+    <button (click)="gerarExtratoFiltro()">Gerar Extrato</button>
+
     <div class="flex flex-sp flex-cv saldo">
       <p>Saldo total:</p>
       <span>R$ 1300,00</span>
     </div>
+    
     <div class="table-responsive">
       <table>
         <thead>
@@ -16,78 +20,12 @@
             <th>Crédito</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>Loja do seu Zé</td>
-            <td>05/12/2018</td>
-            <td>R$ 50,00</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Transferência</td>
-            <td>02/12/2018</td>
-            <td>R$ 100,00</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Depósito</td>
-            <td>19/11/2018</td>
-            <td>-</td>
-            <td>R$ 150,00</td>
-          </tr>
-          <tr>
-            <td>Loja do seu Zé</td>
-            <td>05/12/2018</td>
-            <td>R$ 50,00</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Transferência</td>
-            <td>02/12/2018</td>
-            <td>R$ 100,00</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Depósito</td>
-            <td>19/11/2018</td>
-            <td>-</td>
-            <td>R$ 150,00</td>
-          </tr>
-          <tr>
-            <td>Loja do seu Zé</td>
-            <td>05/12/2018</td>
-            <td>R$ 50,00</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Transferência</td>
-            <td>02/12/2018</td>
-            <td>R$ 100,00</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Depósito</td>
-            <td>19/11/2018</td>
-            <td>-</td>
-            <td>R$ 150,00</td>
-          </tr>
-          <tr>
-            <td>Loja do seu Zé</td>
-            <td>05/12/2018</td>
-            <td>R$ 50,00</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Transferência</td>
-            <td>02/12/2018</td>
-            <td>R$ 100,00</td>
-            <td>-</td>
-          </tr>
-          <tr>
-            <td>Depósito</td>
-            <td>19/11/2018</td>
-            <td>-</td>
-            <td>R$ 150,00</td>
+        <tbody *ngIf='!!this.extrato'>
+          <tr li *ngFor='let transacao of this.extrato["transacoes"]'>
+            <td>{{transacao.data}} {{transacao.hora}}</td>
+            <td>{{transacao.tipo}}</td>
+            <td>{{transacao.tipo}}</td>
+            <td>{{transacao.valor}}</td>
           </tr>
         </tbody>
       </table>
