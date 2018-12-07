@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { AuthGuard } from 'src/app/guards/auth.guard';
+import { ILogin } from 'src/app/models/login.model';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { AuthGuard } from 'src/app/guards/auth.guard';
 })
 export class LoginComponent implements OnInit {
 
-  login = {};
+  login: ILogin = null;
 
   constructor(private authService: AuthService, private router: Router, private authGuard: AuthGuard) {
   }
