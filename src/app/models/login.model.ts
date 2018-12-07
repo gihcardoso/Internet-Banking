@@ -1,8 +1,12 @@
-export class Login{
-    nmUsuario: string;
-    nrCPF: number;
-    dsSenha: number;
-    dsEmail: string;
-    
+export interface ILogin {
+  cpf: string;
+  senha: string;
+}
+
+export class Login implements ILogin {
+  constructor(
+    public cpf: string,
+    public senha: string,
+  ) { }
 
 }

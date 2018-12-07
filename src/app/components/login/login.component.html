@@ -9,11 +9,11 @@
       <p>Digite abaixo seu CPF e sua senha:</p>
       <div class="input cpf">
         <img src="../../assets/ico-pessoa.png" alt="ico-pessoa">
-        <input [(ngModel)]=login.nrCPF type="number" placeholder="CPF">
+        <input [(ngModel)]='login.cpf' type="text" placeholder="CPF">
       </div>
       <div class="input">
         <img src="../../assets/ico-senha.png" alt="ico-cadeado">
-        <input [(ngModel)]=login.dsSenha type="password" placeholder="Senha">
+        <input [(ngModel)]='login.senha' type="password" placeholder="Senha">
       </div>
       <button (click)="fazerLogin()">Acessar</button>
     </div>
