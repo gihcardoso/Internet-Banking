@@ -6,6 +6,7 @@ import { ExtratoComponent } from './components/extrato/extrato.component';
 import { TransferenciasComponent } from './components/transferencias/transferencias.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ErrorComponent } from './components/error/error.component';
+import { ExtratoTransfComponent} from './components/extrato-transf/extrato-transf.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,11 @@ export const routes: Routes = [
   {
     path: 'transferencias',
     component: TransferenciasComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'extratoTransf',
+    component: ExtratoTransfComponent,
     canActivate: [AuthGuard]
   },
   {

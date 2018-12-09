@@ -9,15 +9,15 @@
     <div class="flex flex-wr box-transferencia">
       <div class="box">
         <h2>Dados de transferência</h2>
-        <input type="text" placeholder="Número da agência">
-        <input type="text" placeholder="Número da conta">
-        <input type="text" placeholder="CPF do favorecido">
+        <input [(ngModel)]='favorecido.nrAgencia' name='nrAgencia' type="text" placeholder="Número da agência">
+        <input [(ngModel)]='favorecido.nrConta' name='nrConta' type="text" placeholder="Número da conta">
+        <input [(ngModel)]='favorecido.nrCPF' name='nrCPF' type="text" placeholder="CPF do favorecido">
       </div>
       <div class="w100">
-        <label>Valor: <input type="text"></label>
+        <label>Valor: <input [(ngModel)]='transacao.valor' type="text"></label>
       </div>
       <div class="w100">
-        <button>Realizar transferência</button>
+        <button (click)="enviaDados()" >Realizar transferência</button>
       </div>
     </div>
   </div>

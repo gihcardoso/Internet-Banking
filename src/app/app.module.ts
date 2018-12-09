@@ -23,6 +23,7 @@ import { AuthService } from './services/auth.service';
 
 // Guards > (Depois daqui, verificar se esta no providers)
 import { AuthGuard } from './guards/auth.guard';
+import { ExtratoTransfComponent } from './components/extrato-transf/extrato-transf.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AuthGuard } from './guards/auth.guard';
     ExtratoComponent,
     TransferenciasComponent,
     ErrorComponent,
+    ExtratoTransfComponent,
   ],
   imports: [
     BrowserModule,
