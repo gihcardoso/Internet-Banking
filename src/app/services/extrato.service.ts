@@ -13,6 +13,4 @@ export class ExtratoService {
     return this.http.post<any>(`${API}/conta/extrato`, filtro);
   }
 
-  
-  
 }

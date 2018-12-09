@@ -2,9 +2,15 @@
 
 <header class="header">
   <div class="container">
-    <div class="flex flex-cv flex-ri">
-      <p>Bem-vindo Giovanni</p>
-      <button (click)="deslogarUsuario()">Sair</button>
+    <div>
+      <div class="flex flex-cv conta">
+        <p>Bem-vindo <strong>Giovanni</strong></p>
+      </div>
+      <div class="flex flex-cv sair">
+        <span><strong>Ag:</strong> 123</span>
+        <span><strong>Conta:</strong> 123456</span>
+        <button (click)="deslogarUsuario()">Sair</button>
+      </div>
     </div>
   </div>
 </header>

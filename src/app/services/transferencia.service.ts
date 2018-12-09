@@ -8,17 +8,17 @@ import { Router } from '@angular/router';
 })
 export class TransferenciaService {
 
- private transf = `${API}/transacoes/transferir`
+  private transf = `${API}/transacoes/transferir`;
 
 
   constructor(private http: HttpClient, private router: Router) { }
 
   transferencia(dadosTransf) {
-    return this.http.get<any>(`${API}/transacoes/transferir`, dadosTransf)
+    return this.http.get<any>(`${API}/transacoes/transferir`, dadosTransf);
   }
 
-  transferir (dadosTransf){
-    return this.http.post<any>(this.transf, dadosTransf)
+  transferir(dadosTransf) {
+    return this.http.post<any>(this.transf, dadosTransf);
 
 
   }
