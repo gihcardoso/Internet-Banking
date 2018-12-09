@@ -1,5 +1,4 @@
 export class Usuario {
-
   nmUsuario: string;
   sobrenomeUsuario: string;
   nrBanco: number;
@@ -8,5 +7,4 @@ export class Usuario {
   vlSaldo: number;
   dsSenha: string;
   dsEmail: string;
-
 }

@@ -1,16 +1,16 @@
-import { Transacao } from './transacao.model';
+import { Transferencia } from './transferencia.model';
 
 export interface IExtrato {
-  transacoes: Transacao[],
-  success: boolean,
-  erro: string
+  transacoes: Transferencia[];
+  success: boolean;
+  erro: string;
 }
 
 export class Extrato implements IExtrato {
   constructor(
-    public transacoes: Transacao[],
+    public transacoes: Transferencia[],
     public success: boolean,
-    public erro: string
+    public erro: string,
   ) { }
 
 }

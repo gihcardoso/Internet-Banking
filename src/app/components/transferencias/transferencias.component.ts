@@ -1,8 +1,9 @@
+declare var $: any;
+
 import { Component, OnInit } from '@angular/core';
 import { TransferenciaService } from '../../services/transferencia.service';
 import { Router } from '@angular/router';
-import { Transacao } from 'src/app/models/transacao.model';
-import { Favorecido } from 'src/app/models/favorecido.model';
+import { Transferencia } from 'src/app/models/transferencia.model';
 
 @Component({
   selector: 'app-transferencias',
@@ -11,8 +12,14 @@ import { Favorecido } from 'src/app/models/favorecido.model';
 })
 export class TransferenciasComponent implements OnInit {
 
-  transacao: Transacao;
-  favorecido: Favorecido;
+  transferencia: Transferencia = {
+    contaOrigem: null,
+    agenciaOrigem: null,
+    contaDestino: null,
+    agenciaDestino: null,
+    valor: null,
+    observacao: null,
+  };
 
   constructor(private transf: TransferenciaService, private router: Router) { }
 
@@ -20,15 +27,28 @@ export class TransferenciasComponent implements OnInit {
 
   }
 
-  enviaDados() {
-    this.transf.transferir(this.transacao && this.favorecido)
+  realizaTransferencia() {
+    this.transf.transferencia(this.transferencia)
       .subscribe(
         res => {
           console.log(res);
-          this.router.navigate(['/extratoTransf']);
         },
-        err => console.log(err)
+        err => {
+          if (err.error.auth === false) {
+            $('.modal-login h1').html('Sua sessão expirou'),
+              $('.modal-login').css('height', $('body').height()).addClass('ativo');
+            localStorage.removeItem('token');
+            this.router.navigate(['/']);
+          } else {
+            $('.modal-login h1').html(err.error.mensagem),
+              $('.modal-login').css('height', $('body').height()).addClass('ativo');
+          }
+        }
       );
+  }
+
+  fecharModal() {
+    $('.modal-login').removeClass('ativo');
   }
 
 }

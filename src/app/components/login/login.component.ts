@@ -1,8 +1,6 @@
 declare var $: any;
 
 import { Component, OnInit } from '@angular/core';
-
-// Imports manuais - Pro Login funfar e pah
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { AuthGuard } from 'src/app/guards/auth.guard';
@@ -32,14 +30,16 @@ export class LoginComponent implements OnInit {
   }
 
   fazerLogin() {
-    //console.log(this.login);
     this.authService.fazerLogin2(this.login)
       .subscribe(
         res => {
           localStorage.setItem('token', res.token);
           this.router.navigate(['home']);
         },
-        err => $('.modal-login').addClass('ativo'),
+        err => {
+          $('.modal-login h1').html(err.error.erro),
+            $('.modal-login').css('height', $('body').height()).addClass('ativo');
+        }
       );
   }
 

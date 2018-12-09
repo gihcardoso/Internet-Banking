@@ -9,16 +9,24 @@
     <div class="flex flex-wr box-transferencia">
       <div class="box">
         <h2>Dados de transferência</h2>
-        <input [(ngModel)]='favorecido.nrAgencia' name='nrAgencia' type="text" placeholder="Número da agência">
-        <input [(ngModel)]='favorecido.nrConta' name='nrConta' type="text" placeholder="Número da conta">
-        <input [(ngModel)]='favorecido.nrCPF' name='nrCPF' type="text" placeholder="CPF do favorecido">
+        <input [(ngModel)]='transferencia.agenciaDestino' name='agencia' type="text" placeholder="Número da agência">
+        <input [(ngModel)]='transferencia.contaDestino' name='conta' type="text" placeholder="Número da conta">
+        <input [(ngModel)]='transferencia.observacao' name='observacao' type="text" placeholder="Observações  ">
       </div>
       <div class="w100">
-        <label>Valor: <input [(ngModel)]='transacao.valor' type="text"></label>
+        <label>Valor: <input [(ngModel)]='transferencia.valor' type="text"></label>
       </div>
       <div class="w100">
-        <button (click)="enviaDados()" >Realizar transferência</button>
+        <button (click)="realizaTransferencia()">Realizar transferência</button>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="modal-login flex flex-cv flex-ch">
+  <div class="box">
+    <h1>
+    </h1>
+    <button (click)="fecharModal()">Voltar</button>
   </div>
 </section>
