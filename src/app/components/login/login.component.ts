@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   fazerLogin() {
-    console.log(this.login);
+    //console.log(this.login);
     this.authService.fazerLogin2(this.login)
       .subscribe(
         res => {

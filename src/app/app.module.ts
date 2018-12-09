@@ -1,3 +1,4 @@
+import { TokenInterceptor } from './interceptors/token.interceptor';
 // Modulos próprios
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -6,7 +7,7 @@ import { AppComponent } from './app.component';
 
 // Modulos criados --
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Novos componentes > (Certificar que eles estão no declarations)
 import { MenuComponent } from './components/menu/menu.component';
@@ -46,7 +47,8 @@ import { ExtratoTransfComponent } from './components/extrato-transf/extrato-tran
   ],
   providers: [
     AuthService,
-    AuthGuard
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
