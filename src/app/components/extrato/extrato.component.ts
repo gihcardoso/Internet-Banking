@@ -1,7 +1,8 @@
+import { ContaService } from './../../services/conta.service';
 import { Component, OnInit } from '@angular/core';
 import { ExtratoService } from 'src/app/services/extrato.service';
 import { IExtrato } from 'src/app/models/extrato.models'
-import { UsuarioService } from 'src/app/services/usuario.service';
+import { IConta } from 'src/app/models/conta.model';
 
 @Component({
   selector: 'app-extrato',
@@ -11,21 +12,22 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class ExtratoComponent implements OnInit {
 
   extrato: IExtrato;
-  constructor(private extratoService: ExtratoService, private u: UsuarioService) { }
+  conta: IConta = null;
+  constructor(private extratoService: ExtratoService, private c: ContaService) { }
 
   ngOnInit() {
-    this.gerarExtratoFiltro();    
+    this.gerarExtratoFiltro();
   }
   
-  gerarExtratoFiltro(){    
-    this.u.getUsuario().subscribe(
+  gerarExtratoFiltro(){
+    this.c.getConta().subscribe(
       res => {
-        console.log(res[0]);
+        this.conta = res ;
+        console.log(res[0].nrConta)
       },
       err => {
-        console.log(err)
-      }
-    );
+        console.log(err);
+    });
 
     this.extratoService.getTransacoes('filtro')
     .subscribe(

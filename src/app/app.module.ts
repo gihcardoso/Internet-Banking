@@ -37,7 +37,7 @@ import { ExtratoTransfComponent } from './components/extrato-transf/extrato-tran
     ExtratoComponent,
     TransferenciasComponent,
     ErrorComponent,
-    ExtratoTransfComponent,
+    ExtratoTransfComponent
   ],
   imports: [
     BrowserModule,

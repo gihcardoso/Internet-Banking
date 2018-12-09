@@ -1,9 +1,8 @@
 export class Favorecido {
-  nmFavorecido: number;
+  nome: string;
   sobrenomeFavorecido: string;
-  nrBanco: number;
-  nrAgencia: number;
-  nrConta: number;
+  agencia: number;
+  conta: number;
+  cpf: number;
   nrCPF: number;
-  dsEmail: string;
 }
