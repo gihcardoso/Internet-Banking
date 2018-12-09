@@ -14,8 +14,7 @@ export class ExtratoComponent implements OnInit {
   constructor(private extratoService: ExtratoService, private u: UsuarioService) { }
 
   ngOnInit() {
-    this.gerarExtratoFiltro();
-    
+    this.gerarExtratoFiltro();    
   }
   
   gerarExtratoFiltro(){    
@@ -23,7 +22,9 @@ export class ExtratoComponent implements OnInit {
       res => {
         console.log(res[0]);
       },
-      err => console.log(err)
+      err => {
+        console.log(err)
+      }
     );
 
     this.extratoService.getTransacoes('filtro')
