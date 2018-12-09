@@ -1,11 +1,11 @@
 declare var $: any;
 
-import { ContaService } from './../../services/conta.service';
 import { Component, OnInit } from '@angular/core';
 import { ExtratoService } from 'src/app/services/extrato.service';
-import { IExtrato } from 'src/app/models/extrato.models';
-import { IConta } from 'src/app/models/conta.model';
 import { Router } from '@angular/router';
+import { IConta } from 'src/app/models/conta.model';
+import { ContaService } from './../../services/conta.service';
+import { Extrato } from 'src/app/models/extrato.models';
 
 @Component({
   selector: 'app-extrato',
@@ -14,11 +14,8 @@ import { Router } from '@angular/router';
 })
 export class ExtratoComponent implements OnInit {
 
-  extrato: IExtrato = {
-    transacoes: null,
-    success: null,
-    erro: null,
-  };
+  extrato: Extrato[] = [];
+
   conta: IConta = {
     favorecidos: null,
     nrAgencia: null,
@@ -29,14 +26,34 @@ export class ExtratoComponent implements OnInit {
     __v: null,
     id: null,
   };
-  constructor(private extratoService: ExtratoService, private c: ContaService, private router: Router) { }
+
+  constructor(private extratoService: ExtratoService, private contaService: ContaService, private router: Router) { }
 
   ngOnInit() {
-    this.gerarExtratoFiltro();
+    this.buscarExtrato();
+    this.buscarConta();
   }
 
-  gerarExtratoFiltro() {
-    this.c.getConta().subscribe(
+  buscarExtrato() {
+    this.extratoService.getTransacoes('filtro')
+      .subscribe(
+        res => {
+          this.extrato = res;
+          console.log(this.extrato);
+        },
+        err => {
+          if (err.error.auth === false) {
+            localStorage.removeItem('token');
+            this.router.navigate(['/']);
+          } else {
+            console.log(err);
+          }
+        }
+      );
+  }
+
+  buscarConta() {
+    this.contaService.getConta().subscribe(
       res => {
         this.conta = res[0];
       },
@@ -48,14 +65,6 @@ export class ExtratoComponent implements OnInit {
           console.log(err);
         }
       });
-
-    this.extratoService.getTransacoes('filtro')
-      .subscribe(
-        res => {
-          this.extrato = res;
-        },
-        err => console.log(err['erro'])
-      );
   }
 
 }

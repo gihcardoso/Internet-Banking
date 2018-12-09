@@ -6,8 +6,6 @@
       <p>Saldo total:</p>
       <span>R$ {{ conta.vlSaldo }}</span>
     </div>
-    <button (click)='gerarExtratoFiltro()'>TESTE</button>
-    {{ conta.nrConta }}
     <div class="table-responsive">
       <table>
         <thead>
@@ -18,12 +16,12 @@
             <th>Crédito</th>
           </tr>
         </thead>
-        <tbody *ngIf='!!this.extrato'>
-          <tr li *ngFor='let transacao of this.extrato["transacoes"]'>
-            <td>{{transacao.data}} {{transacao.hora}}</td>
-            <td>{{transacao.tipo}}</td>
-            <td>{{transacao.tipo}}</td>
-            <td>{{transacao.valor}}</td>
+        <tbody>
+          <tr *ngFor='let item of extrato'>
+            <td>{{ item.observacao }}</td>
+            <td>{{ item.dtTransacao | date:'dd/MM/yyyy' }}</td>
+            <td>{{ item.tpTransacao == "debito" ? item.vlTransacao : '-' }}</td>
+            <td>{{ item.tpTransacao == "credito" ? item.vlTransacao : '-'  }}</td>
           </tr>
         </tbody>
       </table>

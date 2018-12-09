@@ -39,7 +39,6 @@ export class HeaderComponent implements OnInit {
   buscaUsuario() {
     this.usuarioService.getUsuario().subscribe(
       res => {
-        console.log(res);
         this.usuario = res;
       },
       err => {
