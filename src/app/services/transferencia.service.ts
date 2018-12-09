@@ -10,7 +10,6 @@ export class TransferenciaService {
 
   private transf = `${API}/transacoes/transferir`;
 
-
   constructor(private http: HttpClient, private router: Router) { }
 
   transferencia(dadosTransf) {
@@ -19,7 +18,5 @@ export class TransferenciaService {
 
   transferir(dadosTransf) {
     return this.http.post<any>(this.transf, dadosTransf);
-
-
   }
 }
