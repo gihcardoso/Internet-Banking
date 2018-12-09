@@ -4,10 +4,10 @@
     <h2>Confira suas transações:</h2>
     <div class="flex flex-sp flex-cv saldo">
       <p>Saldo total:</p>
-      <span>R$ 1300,00</span>
+      <span>R$ {{ conta.vlSaldo }}</span>
     </div>
     <button (click)='gerarExtratoFiltro()'>TESTE</button>
-    {{ conta[0].nrConta }}
+    {{ conta.nrConta }}
     <div class="table-responsive">
       <table>
         <thead>

@@ -5,12 +5,11 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ContaService {
+export class UsuarioService {
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) { }
 
-  getConta() {
-    return this.http.post<any>(`${API_PROD}/conta`, '');
+  getUsuario() {
+    return this.http.post<any>(`${API_PROD}/usuario`, '');
   }
 }

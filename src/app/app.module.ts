@@ -18,13 +18,18 @@ import { LoginComponent } from './components/login/login.component';
 import { ExtratoComponent } from './components/extrato/extrato.component';
 import { TransferenciasComponent } from './components/transferencias/transferencias.component';
 import { ErrorComponent } from './components/error/error.component';
+import { ExtratoTransfComponent } from './components/extrato-transf/extrato-transf.component';
 
 // Services > (Depois daqui, verificar se esta no providers)
 import { AuthService } from './services/auth.service';
+import { ContaService } from './services/conta.service';
+import { ExtratoService } from './services/extrato.service';
+import { TransferenciaService } from './services/transferencia.service';
+import { UsuarioService } from './services/usuario.service';
 
 // Guards > (Depois daqui, verificar se esta no providers)
 import { AuthGuard } from './guards/auth.guard';
-import { ExtratoTransfComponent } from './components/extrato-transf/extrato-transf.component';
+
 
 @NgModule({
   declarations: [
@@ -48,7 +53,11 @@ import { ExtratoTransfComponent } from './components/extrato-transf/extrato-tran
   providers: [
     AuthService,
     AuthGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    ContaService,
+    ExtratoService,
+    TransferenciaService,
+    UsuarioService
   ],
   bootstrap: [AppComponent]
 })

@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { TransferenciaService } from '../../services/transferencia.service';
 import { Router } from '@angular/router';
 import { Transferencia } from 'src/app/models/transferencia.model';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Iusuario, Usuario } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'app-transferencias',
@@ -21,10 +23,39 @@ export class TransferenciasComponent implements OnInit {
     observacao: null,
   };
 
-  constructor(private transf: TransferenciaService, private router: Router) { }
+  usuario: Iusuario = {
+    nrAgencia: null,
+    nrBanco: null,
+    nrConta: null,
+    usuario: null,
+    vlSaldo: null,
+    __v: null,
+    id: null,
+    dsSenha: null,
+    dsEmail: null,
+    nrCPF: null,
+    sobrenomeUsuario: null,
+    nmUsuario: null,
+  };
+
+  constructor(private transf: TransferenciaService, private router: Router, private usuarioService: UsuarioService) { }
 
   ngOnInit() {
+    this.buscaUsuario();
+  }
 
+  buscaUsuario() {
+    this.usuarioService.getUsuario().subscribe(
+      res => {
+      },
+      err => {
+        if (err.error.auth === false) {
+          localStorage.removeItem('token');
+          this.router.navigate(['/']);
+        } else {
+          console.log(err);
+        }
+      });
   }
 
   realizaTransferencia() {
@@ -35,8 +66,6 @@ export class TransferenciasComponent implements OnInit {
         },
         err => {
           if (err.error.auth === false) {
-            $('.modal-login h1').html('Sua sessão expirou'),
-              $('.modal-login').css('height', $('body').height()).addClass('ativo');
             localStorage.removeItem('token');
             this.router.navigate(['/']);
           } else {
