@@ -1,3 +1,5 @@
+declare var $: any;
+
 import { Component, OnInit } from '@angular/core';
 
 // Imports manuais - Pro Login funfar e pah
@@ -37,8 +39,12 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', res.token);
           this.router.navigate(['home']);
         },
-        err => console.log(err)
+        err => $('.modal-login').addClass('ativo'),
       );
+  }
+
+  fecharModal() {
+    $('.modal-login').removeClass('ativo');
   }
 
 }
