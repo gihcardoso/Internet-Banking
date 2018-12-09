@@ -13,11 +13,14 @@ import { ILogin } from 'src/app/models/login.model';
 })
 export class LoginComponent implements OnInit {
 
-  login: ILogin = null;
+  login: ILogin = {
+    cpf: null,
+    senha: null,
+  };
 
-  constructor(private authService: AuthService, 
-              private router: Router, 
-              private authGuard: AuthGuard) {
+  constructor(private authService: AuthService,
+    private router: Router,
+    private authGuard: AuthGuard) {
   }
 
   ngOnInit() {
@@ -27,6 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   fazerLogin() {
+    console.log(this.login);
     this.authService.fazerLogin2(this.login)
       .subscribe(
         res => {

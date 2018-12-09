@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { API } from '../app.api';
+import { API, API_PROD } from '../app.api';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class AuthService {
 
 
   fazerLogin2(login) {
-    return this.http.post<any>(`${API}/usuario/logon`, login);
+    return this.http.post<any>(`${API_PROD}/usuario/logon`, login);
   }
 
   pegarToken() {
