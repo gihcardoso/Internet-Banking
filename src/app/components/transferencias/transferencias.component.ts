@@ -76,12 +76,12 @@ export class TransferenciasComponent implements OnInit {
   realizaTransferencia() {
     this.transferencia.agenciaOrigem = this.conta.nrAgencia;
     this.transferencia.contaOrigem = this.conta.nrConta;
-    console.log(this.transferencia)
-
     this.transferenciaService.transferenciaPOST(this.transferencia)
       .subscribe(
         res => {
-          console.log(res);
+          $('.modal-login h1').html("Transferência realizada com sucesso!"),
+              $('.modal-login').css('height', $('body').height()).addClass('ativo');
+              this.getContaUsuario();
         },
         err => {
           if (err.error.auth === false) {
@@ -97,6 +97,7 @@ export class TransferenciasComponent implements OnInit {
 
   fecharModal() {
     $('.modal-login').removeClass('ativo');
+    this.router.navigate(['/extrato']);
   }
 
 }

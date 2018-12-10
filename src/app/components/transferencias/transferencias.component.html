@@ -4,7 +4,7 @@
     <h2>Preencha os campos abaixo:</h2>
     <div class="flex flex-sp flex-cv saldo">
       <p>Saldo total:</p>
-      <span>R$ {{ conta.vlSaldo }}</span>
+      <span>{{ conta.vlSaldo | currency:'BRL':true:'1.2-2' | trocaPontoVirgula }}</span>
     </div>
     <div class="flex flex-wr box-transferencia">
       <div class="box">

@@ -29,6 +29,7 @@ import { UsuarioService } from './services/usuario.service';
 
 // Guards > (Depois daqui, verificar se esta no providers)
 import { AuthGuard } from './guards/auth.guard';
+import { TrocaPontoVirgulaPipe } from './pipes/troca-ponto-virgula.pipe';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { AuthGuard } from './guards/auth.guard';
     ExtratoComponent,
     TransferenciasComponent,
     ErrorComponent,
-    ExtratoTransfComponent
+    ExtratoTransfComponent,
+    TrocaPontoVirgulaPipe
   ],
   imports: [
     BrowserModule,
