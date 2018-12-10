@@ -34,3 +34,15 @@
         }
     }
 }
+
+@media (max-width: 762px) {
+    .header .conta {
+        float: none;
+        justify-content: center;
+    }
+
+    .header .sair {
+      float: none;
+      justify-content: center;
+  }
+}
