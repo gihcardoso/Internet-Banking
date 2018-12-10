@@ -82,7 +82,8 @@
             font-size: 16px;
             margin: 30px auto 50px;
             padding: 7px 0;
-            width: 320px;
+            max-width: 320px;
+            width: 90%;
             -webkit-transition: all 500ms cubic-bezier(0.000, 0.000, 0.380, 1.000);
             -moz-transition: all 500ms cubic-bezier(0.000, 0.000, 0.380, 1.000);
             -o-transition: all 500ms cubic-bezier(0.000, 0.000, 0.380, 1.000);
@@ -155,5 +156,19 @@
                 color: #ffffff;
             }
         }
+    }
+}
+
+@media (max-width: 762px) {
+    .bg .box-transferencia label {
+        text-align: center;
+        input {
+            margin-left: 0;
+            margin-top: 15px;
+            width: 90%;
+        }
+    }
+    .bg .box-transferencia .box h2 {
+        font-size: 25px;
     }
 }
