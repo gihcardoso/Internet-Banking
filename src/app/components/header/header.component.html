@@ -4,11 +4,11 @@
   <div class="container">
     <div>
       <div class="flex flex-cv conta">
-        <p>Bem-vindo(a): <strong>{{ usuario.nmUsuario }}</strong></p>
+        <p>Bem-vindo(a): <strong>{{ this.usuario.nmUsuario }}</strong></p>
       </div>
       <div class="flex flex-cv sair">
-        <span><strong>Ag:</strong> {{ usuario.nrAgencia }}</span>
-        <span><strong>Conta:</strong> {{ usuario.nrConta }}</span>
+        <span><strong>Ag:</strong> {{ this.conta.nrAgencia }}</span>
+        <span><strong>Conta:</strong> {{ this.conta.nrConta }}</span>
         <button (click)="deslogarUsuario()">Sair</button>
       </div>
     </div>

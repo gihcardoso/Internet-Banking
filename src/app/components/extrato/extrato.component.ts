@@ -21,8 +21,9 @@ export class ExtratoComponent implements OnInit {
     nrAgencia: null,
     nrBanco: null,
     nrConta: null,
-    usuario: null,
+    transacoes: null,
     vlSaldo: null,
+    usuario: null,
     __v: null,
     id: null,
   };
@@ -35,11 +36,10 @@ export class ExtratoComponent implements OnInit {
   }
 
   buscarExtrato() {
-    this.extratoService.getTransacoes('filtro')
+    this.extratoService.transacoesGET('filtro')
       .subscribe(
         res => {
           this.extrato = res;
-          console.log(this.extrato);
         },
         err => {
           if (err.error.auth === false) {

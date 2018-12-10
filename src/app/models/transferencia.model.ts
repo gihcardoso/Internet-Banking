@@ -1,18 +1,18 @@
-export interface Itranferencia {
-  contaOrigem: string;
-  agenciaOrigem: string;
-  contaDestino: string;
-  agenciaDestino: string;
+export interface ITranferencia {
+  contaOrigem: number;
+  agenciaOrigem: number;
+  contaDestino: number;
+  agenciaDestino: number;
   valor: number;
   observacao: string;
 }
 
-export class Transferencia implements Itranferencia {
+export class Transferencia implements ITranferencia {
   constructor(
-    public contaOrigem: string,
-    public agenciaOrigem: string,
-    public contaDestino: string,
-    public agenciaDestino: string,
+    public contaOrigem: number,
+    public agenciaOrigem: number,
+    public contaDestino: number,
+    public agenciaDestino: number,
     public valor: number,
     public observacao: string,
   ) { }

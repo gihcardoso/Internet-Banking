@@ -10,7 +10,7 @@ export class TransferenciaService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  transferencia(dadosTransf) {
+  transferenciaPOST(dadosTransf) {
     return this.http.post<any>(`${API_PROD}/transacoes/transferir`, dadosTransf);
   }
 }

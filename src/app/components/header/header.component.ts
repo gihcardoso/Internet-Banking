@@ -1,7 +1,9 @@
+import { ContaService } from './../../services/conta.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { Iusuario } from 'src/app/models/usuario.model';
+import { IUsuario } from 'src/app/models/usuario.model';
+import { IConta } from 'src/app/models/conta.model';
 
 @Component({
   selector: 'app-header',
@@ -10,25 +12,29 @@ import { Iusuario } from 'src/app/models/usuario.model';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router, private usuarioService: UsuarioService) { }
+  constructor(private router: Router, private usuarioService: UsuarioService, private contaService: ContaService) { }
 
-  usuario: Iusuario = {
-    nrAgencia: null,
-    nrBanco: null,
-    nrConta: null,
-    usuario: null,
-    vlSaldo: null,
-    __v: null,
-    id: null,
-    dsSenha: null,
+  usuario: IUsuario = {
+    _id: null,
     dsEmail: null,
     nrCPF: null,
     sobrenomeUsuario: null,
     nmUsuario: null,
+    __v: null
   };
-
+  conta: IConta = {
+    favorecidos: null,
+    nrAgencia: null,
+    nrBanco: null,
+    nrConta: null,
+    transacoes: null,
+    vlSaldo: null,
+    usuario: null,
+    __v: null,
+    id: null,
+  };
   ngOnInit() {
-    this.buscaUsuario();
+    this.getContaUsuario();
   }
 
   deslogarUsuario() {
@@ -36,17 +42,24 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  buscaUsuario() {
+  getContaUsuario() {
     this.usuarioService.getUsuario().subscribe(
-      res => {
-        this.usuario = res;
+      resUsuario => {
+        this.usuario = resUsuario;
+        this.contaService.getConta().subscribe(
+          resConta => {
+            this.conta = resConta[0];
+          },
+          errConta => {
+          console.log(errConta);
+        });
       },
-      err => {
-        if (err.error.auth === false) {
+      errUsuario => {
+        if (errUsuario.error.auth === false) {
           localStorage.removeItem('token');
           this.router.navigate(['/']);
         } else {
-          console.log(err);
+          console.log(errUsuario);
         }
       });
   }

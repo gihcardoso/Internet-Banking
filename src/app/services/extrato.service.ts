@@ -9,7 +9,7 @@ export class ExtratoService {
 
   constructor(private http: HttpClient) { }
 
-  getTransacoes(filtro) {
+  transacoesGET(filtro) {
     return this.http.post<any>(`${API_PROD}/transacoes/extrato`, filtro);
   }
 

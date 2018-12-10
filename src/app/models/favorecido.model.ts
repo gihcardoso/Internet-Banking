@@ -1,8 +1,17 @@
-export class Favorecido {
+export class IFavorecido {
   nome: string;
-  sobrenomeFavorecido: string;
+  banco: number;
   agencia: number;
   conta: number;
-  cpf: number;
-  nrCPF: number;
+  cpf: string
+}
+
+export class Favorecido implements IFavorecido {
+  constructor(
+    public nome: string,
+    public banco: number,
+    public agencia: number,
+    public conta: number,
+    public cpf: string
+  ) { }
 }

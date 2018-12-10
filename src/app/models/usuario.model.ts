@@ -1,31 +1,19 @@
-export class Iusuario {
-  nrAgencia: number;
-  nrBanco: number;
-  nrConta: number;
-  usuario: string;
-  vlSaldo: number;
-  __v: number;
-  id: string;
-  dsSenha: string;
+export class IUsuario {
+  _id: string;
   dsEmail: string;
   nrCPF: string;
   sobrenomeUsuario: string;
   nmUsuario: string;
+  __v: number
 }
 
-export class Usuario implements Iusuario {
+export class Usuario implements IUsuario {
   constructor(
-    public nrAgencia: number,
-    public nrBanco: number,
-    public nrConta: number,
-    public usuario: string,
-    public vlSaldo: number,
-    public __v: number,
-    public id: string,
-    public dsSenha: string,
+    public _id: string,
     public dsEmail: string,
     public nrCPF: string,
     public sobrenomeUsuario: string,
     public nmUsuario: string,
+    public __v: number
   ) { }
 }
